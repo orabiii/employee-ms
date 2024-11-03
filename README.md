@@ -1,11 +1,11 @@
-# Employee Management Microservices
+# Employee Microservices
 
 This project consists of three microservices built using Spring Boot 3.x:
 
 ## 1. API Gateway
 
 - **Description**: The API Gateway is a microservice built with Spring Cloud, running on port **8080**. It serves as the front door for our application and implements cross-cutting authentication using JWT.
-- **Server**: Developed on an embedded Netty server to support a reactive model, capable of handling a large number of requests.
+- **Server**: Developed as an embedded Netty server to support a reactive model, capable of handling a large number of requests.
 
 ### APIs
 - **/authenticate**: 
@@ -33,14 +33,26 @@ This project consists of three microservices built using Spring Boot 3.x:
 - **Controller Advice**: Manages exceptions as a cross-cutting aspect.
 - **Resource Files**: Supports multi-language validation messages.
 - **Swagger**: Documents and visualizes the endpoints in the application.
-  - **Access**: [Swagger UI](http://{host_ip}:8000/swagger-ui/index.html)
+  - **Access**:`http://{host_ip}:8000/swagger-ui/index.html`
 
 ---
 
 ## How to Run
 
-To run the microservices, ensure you have the JAR files for each microservice and start them in the following order from the base directory:
+To run the microservices, ensure you have the JAR files for each microservice.
 
+#build the jar files
+
+ - cd to the microservice.
+ - Run 
+ ```bash
+   mvn clean install -DskipTests
+   ```
+
+
+Start the microservices in the following order. 
+
+From the base directory wherevyou have downloaded the project:
 1. **Start the Discovery Service**:
    ```bash
    cd discovery-service/target

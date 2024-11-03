@@ -44,12 +44,21 @@ public class EmployeeController {
 
 	@PostMapping
 	public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
-			Employee savedEmployee = employeeService.createEmployee(employee);
-			URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-					.path("/{id}")
-					.buildAndExpand(savedEmployee.getId())
-					.toUri();
-			return ResponseEntity.created(location).body(savedEmployee);
+		Employee savedEmployee = employeeService.createEmployee(employee);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}")
+				.buildAndExpand(savedEmployee.getId())
+				.toUri();
+		return ResponseEntity.created(location).body(savedEmployee);
+	}
+	@PostMapping("/dto")
+	public ResponseEntity<Employee> createEmployeeDto(@RequestBody EmployeeUpdateDTO employeeUpdateDTO) {
+		Employee savedEmployee = employeeService.createEmployeeDto(employeeUpdateDTO);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}")
+				.buildAndExpand(savedEmployee.getId())
+				.toUri();
+		return ResponseEntity.created(location).body(savedEmployee);
 	}
 
 	@PutMapping("/{id}")

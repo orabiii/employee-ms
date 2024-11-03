@@ -20,7 +20,6 @@ public class Employee {
 	@NameValidator
 	private String name;
 
-	//@NotNull(message = "nationalId.notNull")
 	@Size(min = 14, max = 14, message = "nationalId.length")
 	@Column(unique = true)
 	private String nationalId;
@@ -30,4 +29,5 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name = "branch_id")
 	private Branch branch;
+
 }

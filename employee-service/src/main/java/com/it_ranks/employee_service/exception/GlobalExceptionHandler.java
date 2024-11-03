@@ -40,11 +40,14 @@ public class GlobalExceptionHandler {
 		body.put("timestamp", System.currentTimeMillis());
 		body.put("status", HttpStatus.CONFLICT.value());
 		body.put("error", "Data Integrity Violation");
+		String exceptionMessage = ex.getCause() != null ? ex.getCause().getMessage() : ex.getMessage();
 
-		if (ex.getCause() != null && ex.getCause().getMessage().contains("NATIONAL_ID")) {
+		if (exceptionMessage.contains("NATIONAL_ID")) {
 			body.put("message", "The National ID already exists. Please provide a unique National ID.");
+		} else if (exceptionMessage.contains("branch.notFound")) {
+			body.put("message", "The specified branch does not exist. Please provide a valid branch ID.");
 		} else {
-			body.put("message", "data integrity violation occurred.");
+			body.put("message", "A data integrity violation occurred.");
 		}
 		return new ResponseEntity<>(body, HttpStatus.CONFLICT);
 	}

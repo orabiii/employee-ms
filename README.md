@@ -33,7 +33,7 @@ This project consists of three microservices built using Spring Boot 3.x:
 - **Custom Validations**: Provides custom validations for attributes on the employee class.
 - **Controller Advice**: Manages exceptions as a cross-cutting aspect.
 - **Resource Files**: Supports multi-language validation messages.
-- **Locale**: Determine the messages languages (EN,AR)depends on the header parameter **Accept-Language**.
+- **Locale**: Determine the messages languages (EN,AR) depends on the header parameter **Accept-Language**.
 - **Swagger**: Documents and visualizes the endpoints in the application.
   - **Access**:`http://{host_ip}:8000/swagger-ui/index.html`
 
@@ -43,7 +43,7 @@ This project consists of three microservices built using Spring Boot 3.x:
 
 To run the microservices, ensure you have the JAR files for each microservice.
 
-# build the jar files
+### build the jar files
 
  - cd to the microservice.
  - Run 
@@ -52,7 +52,7 @@ To run the microservices, ensure you have the JAR files for each microservice.
    ```
 
 
-# Start the microservices in the following order. 
+### Start the microservices in the following order. 
 
 From the base directory wherevyou have downloaded the project:
 1. **Start the Discovery Service**:

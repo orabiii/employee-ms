@@ -41,8 +41,8 @@ public class SecurityConfig {
 		http
 				.csrf(ServerHttpSecurity.CsrfSpec::disable)
 				.authorizeExchange(exchange -> exchange
-						.pathMatchers("/authenticate").permitAll() // Allow `/authenticate` without JWT
-						.anyExchange().authenticated() // Require JWT authentication for other endpoints
+						.pathMatchers("/authenticate").permitAll()
+						.anyExchange().authenticated()
 				)
 				.httpBasic(customizer -> customizer.authenticationEntryPoint((exchange, ex) -> Mono.empty())) // Limit Basic Auth to `/authenticate`
 				.oauth2ResourceServer(oauth2 -> oauth2
@@ -83,10 +83,9 @@ public class SecurityConfig {
 	}
 	@Bean
 	public RSAKey rsaKey(KeyPair keyPair) throws NoSuchAlgorithmException {
-		// Create an RSAKey object using the public key from the KeyPair
 		return new RSAKey.Builder((RSAPublicKey) keyPair.getPublic())
 				.privateKey(keyPair.getPrivate()) // Optionally include the private key
-				.keyID(UUID.randomUUID().toString()) // Generate a key ID
+				.keyID(UUID.randomUUID().toString())
 				.build();
 	}
 

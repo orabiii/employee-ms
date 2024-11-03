@@ -28,10 +28,12 @@ This project consists of three microservices built using Spring Boot 3.x:
 - **Description**: This microservice handles the business logic for the application, implementing a set of RESTful endpoints. It runs on port **8000** and is registered with the discovery service under the name **EMPLOYEE-SERVICE**.
 
 ### Components
-- **H2 In-Memory Database**: Configured as a relational database with scripts to populate data upon startup.
+- **H2 In-Memory Database**: Configured as a relational database with database script on the resources folder to populate data upon startup.
 - **Hibernate Validations**: Provides validations for entered data.
+- **Custom Validations**: Provides custom validations for attributes on the employee class.
 - **Controller Advice**: Manages exceptions as a cross-cutting aspect.
 - **Resource Files**: Supports multi-language validation messages.
+- **Locale**: Determine the messages languages (EN,AR)depends on the header parameter **Accept-Language**.
 - **Swagger**: Documents and visualizes the endpoints in the application.
   - **Access**:`http://{host_ip}:8000/swagger-ui/index.html`
 
@@ -41,7 +43,7 @@ This project consists of three microservices built using Spring Boot 3.x:
 
 To run the microservices, ensure you have the JAR files for each microservice.
 
-#build the jar files
+# build the jar files
 
  - cd to the microservice.
  - Run 
@@ -50,7 +52,7 @@ To run the microservices, ensure you have the JAR files for each microservice.
    ```
 
 
-Start the microservices in the following order. 
+# Start the microservices in the following order. 
 
 From the base directory wherevyou have downloaded the project:
 1. **Start the Discovery Service**:
@@ -89,6 +91,6 @@ From the base directory wherevyou have downloaded the project:
 
 ## Docker
 
-For best practices in deployment, consider building Docker containers for the three services, using either a Dockerfile or Docker Compose. This approach allows you to create images that can be run as containers and uploaded to a Docker registry for easy access and deployment.
+For best practices in deployment, consider building Docker containers for the three services, using either a Dockerfile or Docker Compose. This approach allows us to create docker images that can be run as a container and uploaded to a Docker registry for easy access and deployment.
 
-Due to time and system resource constraints, Docker implementation will be addressed in a future update.
+Due to time and system resource constraints, Docker implementation will be addressed later.

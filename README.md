@@ -91,6 +91,26 @@ From the base directory wherevyou have downloaded the project:
 
 ## Docker
 
-For best practices in deployment, consider building Docker containers for the three services, using either a Dockerfile or Docker Compose. This approach allows us to create docker images that can be run as a container and uploaded to a Docker registry for easy access and deployment.
+To ensure best practices in deployment, we recommend building Docker containers for the three services using either a Dockerfile or Docker Compose. This approach enables the creation of Docker images that can be executed as containers and uploaded to a Docker registry for easy access and deployment.
 
-Due to time and system resource constraints, Docker implementation will be addressed later.
+### Dockerfile
+
+A Dockerfile is provided to build an image containing the three microservices. Once built, this image is uploaded to the Docker Hub repository `orabiii/demodocker`.
+
+#### How to Run the Image
+
+**Step 1: Pull the Image**
+
+```bash
+docker pull orabiii/demodocker
+```
+
+**Step 2: Run the Container**
+
+You should map the ports specified in your Dockerfile (8080 for the application services and 8761 for the discovery service) to your local machine. This can be achieved with the following command:
+
+```bash
+docker run -d -p 8080:8080 -p 8761:8761 orabiii/demodocker
+```
+
+

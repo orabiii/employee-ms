@@ -1,16 +1,11 @@
-# Use an OpenJDK image as the base image
 FROM openjdk:17-jdk-slim
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy all project files into the container
-COPY employee-service/target/employee-service.jar employee-service.jar
-COPY discovery-service/target/discovery-service.jar discovery-service.jar
-COPY api-gateway/target/api-gateway.jar api-gateway.jar
+COPY discovery-service-0.0.1-SNAPSHOT.jar /app/discovery-service-0.0.1-SNAPSHOT.jar
+COPY api-gateway-0.0.1-SNAPSHOT.jar /app/api-gateway-0.0.1-SNAPSHOT.jar
+COPY employee-service-0.0.1-SNAPSHOT.jar /app/employee-service-0.0.1-SNAPSHOT.jar
 
-# Expose ports for your services
 EXPOSE 8080 8761
 
-# Start the services
-CMD ["sh", "-c", "java -jar employee-service.jar & java -jar discovery-service.jar & java -jar api-gateway.jar"]
+CMD ["sh", "-c", "java -jar /app/discovery-service-0.0.1-SNAPSHOT.jar & sleep 20 && java -jar /app/employee-service-0.0.1-SNAPSHOT.jar & java -jar /app/api-gateway-0.0.1-SNAPSHOT.jar"]

@@ -4,10 +4,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import reactor.core.publisher.Mono;
 
 @FeignClient(name = "employee-service", configuration = FeignConfig.class)
 public interface EmployeeProxy {
-	@PostMapping
-	public ResponseEntity<?> createBranch(@RequestBody String branchName);
+	@PostMapping("api/branches")
+	public Mono<ResponseEntity<?>> createBranch(@RequestBody String branchName);
 
 	}

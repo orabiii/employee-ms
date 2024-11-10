@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class Login {
@@ -24,7 +25,7 @@ public class Login {
 		return "jwt working";
 	}
 	@PostMapping("/api/branches")
-	public ResponseEntity<?> createBranch(@RequestBody String name) {
+	public Mono<ResponseEntity<?>> createBranch(@RequestBody String name) {
 		return employeeProxy.createBranch(name);
 	}
 }

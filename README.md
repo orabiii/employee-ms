@@ -119,7 +119,7 @@ This section highlights the new features and components added to the project.
 ### Centeralized Config Server
 A Spring Cloud-based configuration server is set up, which references a Git repository. This centralized config server manages the configurations for all the microservices in the project. It provides a consistent way to handle and update configuration properties across all services.
 
-#### Openfeign
+### OpenFeign
 OpenFeign is integrated as the HTTP client to enable communication between microservices. It is implemented in the API Gateway, allowing seamless communication with the Employee microservice. This setup simplifies making REST calls between services while leveraging declarative HTTP client features.
 
 ### Unit Test

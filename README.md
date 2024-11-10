@@ -113,4 +113,20 @@ You should map the ports specified in your Dockerfile (8080 for the application 
 docker run -d -p 8080:8080 -p 8761:8761 orabiii/demodocker
 ```
 
+## Updates
+This section highlights the new features and components added to the project.
+
+### Centeralized Config Server
+A Spring Cloud-based configuration server is set up, which references a Git repository. This centralized config server manages the configurations for all the microservices in the project. It provides a consistent way to handle and update configuration properties across all services.
+
+#### Openfeign
+OpenFeign is integrated as the HTTP client to enable communication between microservices. It is implemented in the API Gateway, allowing seamless communication with the Employee microservice. This setup simplifies making REST calls between services while leveraging declarative HTTP client features.
+
+### Unit Test
+Unit tests have been implemented in the Employee microservice using JUnit and Mockito,
+ensuring the stability units of the application. Mockito is used to mock dependencies testing.
+
+### Integration Test
+Integration tests are included to demonstrate the testing of a complete endpoint in the Employee microservice. These tests verify that multiple components work together as expected.
+
 

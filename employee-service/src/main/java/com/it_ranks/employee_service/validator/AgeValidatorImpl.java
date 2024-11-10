@@ -19,14 +19,14 @@ public class AgeValidatorImpl implements ConstraintValidator<AgeValidator, Emplo
 			return false;
 		}
 		Integer age = employee.getAge();
+		LocalDate birthDate;
+		try {
 		int century = Character.getNumericValue(nationalId.charAt(0));
 		int yearPrefix = Integer.parseInt(nationalId.substring(1, 3));
 		int month = Integer.parseInt(nationalId.substring(3, 5));
 		int day = Integer.parseInt(nationalId.substring(5, 7));
 
 		int year = (century == 2 ? 1900 : 2000) + yearPrefix;
-		LocalDate birthDate;
-		try {
 			birthDate = LocalDate.of(year, month, day);
 		} catch (Exception e) {
 			context.disableDefaultConstraintViolation();

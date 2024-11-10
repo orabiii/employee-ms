@@ -12,3 +12,4 @@ INSERT INTO Employee (id, name, national_id, age, branch_id) VALUES
 (5, 'CHRIS LEE', '30505151234562', 19, 2);
 
 ALTER TABLE employee ALTER COLUMN id RESTART WITH 6;
+ALTER TABLE branch ALTER COLUMN id RESTART WITH 4;
